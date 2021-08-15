@@ -11,11 +11,5 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    sudo: required
-    services:
-      - docker
-
-    before_install:
-      - docker build -t jinkim1004/docker-react -f Dockerfile.dev . 
-    script:
-      - docker run jinkim1004/docker-react npm run test -- --coverage
+    run: docker build -t jinkim1004/docker-react -f Dockerfile.dev . 
+    run: docker run jinkim1004/docker-react npm run test -- --coverage
