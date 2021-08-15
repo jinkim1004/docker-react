@@ -20,5 +20,5 @@ jobs:
     # Build
     - name: Build Docker image
       run: docker build -t jinkim1004/docker-react -f Dockerfile.dev . 
-    - name: docker test
-      run: docker run jinkim1004/docker-react npm run test -- --coverage
+      
+   
