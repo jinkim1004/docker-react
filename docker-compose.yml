@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    #map volumes here to any changes to the code will automatically injected into the docker container without having to
+    #rebuild  
+    volumes: 
+      - /app/node_modules
+      - .:/app
+  tests:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    #map volumes here to any changes to the code will automatically injected into the docker container without having to
+    #rebuild  
+    volumes: 
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "start"]
+
+
+    
