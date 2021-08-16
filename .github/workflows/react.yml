@@ -20,9 +20,10 @@ jobs:
     # Build
     - name: Build Docker image
       run: docker build -t jinkim1004/docker-react:latest . 
-    # Docker Login
-    - name: Docker login
-      run:  echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin    # Docker push
-    - name: Docker push
-      run: docker push jinkim1004/docker-react:latest      #run:  aws s3 cp jinkim1004/docker-react s3://elasticbeanstalk-us-east-1-473365992405/docker-react
+    - name: Docker Image to Zip
+      run: docker save awesomesauce:latest > docker-react.zip    # Docker Login
+    #- name: Docker login
+    #  run:  echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin    # Docker push
+    - name: S3
+      run:  aws s3 cp docker-react.zip  s3://elasticbeanstalk-us-east-1-473365992405/docker-react
    
