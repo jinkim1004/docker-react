@@ -4,4 +4,7 @@ services:
 
 
 before_install:
-  - docker build -t jinkim1004/docker-react Dockerfile .
+  - docker build -t docker-react Dockerfile .
+
+script:
+  - docker run docker-react npm run test
