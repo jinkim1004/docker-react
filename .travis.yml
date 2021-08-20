@@ -1,3 +1,4 @@
+language: generic 
 sudo: required
 services:
   - docker
@@ -7,4 +8,4 @@ before_install:
   - docker build -t docker-react .
 
 script:
-  - docker run docker-react npm run test
+  - docker run -e CI=true USERNAME/docker-react npm run test
