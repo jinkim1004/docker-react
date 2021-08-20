@@ -19,9 +19,9 @@ jobs:
       
     # Build
     - name: Build Docker image
-      run: docker build -t jinkim1004/docker-react:latest . 
+      run: sudo docker build -t jinkim1004/docker-react:latest . 
     - name: Docker Image to Zip
-      run: docker save jinkim1004/docker-react:latest > docker-react.zip    # Docker Login
+      run: sudo docker save jinkim1004/docker-react:latest > docker-react.zip    # Docker Login
     #- name: Docker login
     #  run:  echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin    # Docker push
     - name: S3
