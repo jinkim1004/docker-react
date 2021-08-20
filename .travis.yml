@@ -4,7 +4,7 @@ services:
 
 
 before_install:
-  - docker build -t docker-react Dockerfile .
+  - docker build -t docker-react .
 
 script:
   - docker run docker-react npm run test
