@@ -7,4 +7,5 @@ COPY . .
 RUN npm run build
 #move the compiled code to nginx container
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
